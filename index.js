@@ -1,7 +1,7 @@
 const express = require("express");
 const {userRouter} = require("./routes/user");
 const {courseRouter} = require("./routes/course");
-const {adminRouter} = requie("./routes.admin");
+const {adminRouter} = require("./routes/admin");
 const app = express();
 
 app.use("/api/v1/user" , userRouter);
