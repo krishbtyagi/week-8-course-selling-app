@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://admin:adminroot123@cluster0.xlxzvai.mongodb.net/course-selling-app")
-
+require('dotenv').config();
+mongoose.connect(process.env.MONGOOSE_STRING);
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
 
