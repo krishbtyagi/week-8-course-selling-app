@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userRouter = Router();
 const {JWT_USER} = require("../config");
+const { userMiddleware } = require("../middleware/user");
 
 
 userRouter.post("/signup", async function(req,res){
@@ -51,9 +52,14 @@ userRouter.post("/signin", async function(req,res){
     }
 });
 
-userRouter.get("/purchases", function(req,res){
+userRouter.get("/purchases", userMiddleware, async function(req,res){
+    const userId = req.userId;
+
+    const purchases = await userModel.find({
+        userId
+    })
     res.json({
-        message : "purchases endpoint"
+        purchases
     })
 })
 
