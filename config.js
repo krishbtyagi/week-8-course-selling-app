@@ -1,5 +1,8 @@
-const JWT_USER = "123user321";
-const JWT_ADMIN = "123admin321";
+require('dotenv').config();
+
+JWT_ADMIN = process.env.JWT_ADMIN;
+JWT_USER = process.env.JWT_USER;
+
 
 module.exports = {
     JWT_ADMIN,
