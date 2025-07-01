@@ -2,8 +2,9 @@ const {Router} = require("express");
 const {userModel} = require("../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const JWT_USER = "123user321";
 const userRouter = Router();
+const {JWT_USER} = require("../config");
+
 
 userRouter.post("/signup", async function(req,res){
     const {email, password, firstName, lastName } = req.body;
